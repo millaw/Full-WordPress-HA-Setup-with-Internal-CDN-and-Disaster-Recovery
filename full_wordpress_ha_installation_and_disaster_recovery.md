@@ -94,6 +94,19 @@ function force_cdn_upload_url($upload) {
 
 ---
 
+## 🧪 OPTIONAL: Remove /uploads on Web Nodes (Safe Version)
+
+Once mounted via NFS:
+```bash
+sudo umount /var/www/mysite/wp-content/uploads
+sudo rm -rf /var/www/mysite/wp-content/uploads
+sudo mkdir /var/www/mysite/wp-content/uploads
+sudo mount cdn1.local:/var/cdn/uploads /var/www/mysite/wp-content/uploads
+```
+Now uploads do not touch the local disk — they’re fully offloaded to CDN.
+
+---
+
 ## 🛢 Database Setup
 
 ### On db1.local (Primary):
